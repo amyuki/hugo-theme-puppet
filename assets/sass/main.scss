@@ -195,6 +195,12 @@ samp {
       margin-top: 10px;
     }
   }
+  // add by yuki
+  ol li::marker {
+    color: #e80561;
+    font-weight: bold;
+    font-family: cursive;
+  }
   // downscale the font a little bit in mobile
   @media screen and (max-width: 768px) {
     h1 {
