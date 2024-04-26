@@ -90,8 +90,8 @@ img.shadow {
 select {
   -webkit-appearance: none;
   margin-top: 15px;
-  color: #337ab7;
-  border-color: #337ab7;
+  color: #ee5e98;
+  border-color: #ee5e98;
   padding: 0em 0.4em;
   background: white;
   &.sel-lang {
@@ -152,7 +152,7 @@ samp {
   a {
     // display: inline-block;
     // safari has bugs on word-break on inline elements.
-    color: #337ab7;
+    color: #ee5e98;
     // different to $brand-primary
     &:hover,
     &:focus {
@@ -794,7 +794,7 @@ footer {
     text-align: center;
     margin-bottom: 0;
     a {
-      color: #337ab7;
+      color: #ee5e98;
       // different to $brand-primary
       &:hover,
       &:focus {
@@ -969,7 +969,7 @@ img::-moz-selection {
     &:hover,
     &:active,
     &.focus {
-      background-color: #0085a1 !important;
+      background-color: #e8055f !important;
     }
     &.focus {
       box-shadow: rgba(0, 0, 0, 0.117647) 0 1px 6px,
@@ -977,7 +977,7 @@ img::-moz-selection {
     }
     &.tag-button--all {
       font-weight: 700;
-      color: #0085a1 !important;
+      color: #e8055f !important;
       &:hover,
       &:active,
       &.focus {
@@ -1007,7 +1007,7 @@ img::-moz-selection {
   }
 }
 .listing-seperator {
-  color: #0085a1;
+  color: #e8055f;
   font-size: 21px !important;
   &::before {
     margin-right: 5px;
