@@ -5,7 +5,8 @@
   {{ end }}
   <h5>FEATURED TAGS</h5>
   <div class="tags">
-    {{ range .Site.Taxonomies.tags }}
+    {{ $taxonomy := "tags" }}
+    {{ range first 15 (index site.Taxonomies $taxonomy).ByCount }}
     <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
     {{ end }}
   </div>
