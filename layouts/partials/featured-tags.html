@@ -3,7 +3,7 @@
   {{ if $bottom }}
   <hr class="hidden-sm hidden-xs">
   {{ end }}
-  <h5>FEATURED TAGS</h5>
+  <h3>FEATURED TAGS</h5>
   <div class="tags">
     {{ $taxonomy := "tags" }}
     {{ range first 15 (index site.Taxonomies $taxonomy).ByCount }}
