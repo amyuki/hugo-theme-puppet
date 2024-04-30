@@ -75,7 +75,7 @@
   <link rel="shortcut icon" href="{{ "favicon.ico" | relURL }}" type="image/x-icon">
   <link rel="icon" href="{{ "logo.svg" | relURL }}" sizes="any" type="image/svg+xml" />
 {{ end }}
-{{ if not hugo.IsServer }}
+{{ if not .Site.IsServer }}
   {{ template "_internal/google_analytics.html" . }}
 {{ end }}
 </head>
