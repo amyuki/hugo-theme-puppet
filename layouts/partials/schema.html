@@ -1,0 +1,130 @@
+<script type="application/ld+json">
+    {{ $title := .Title }}
+    {{- if not .IsHome }}
+      {{ $title = printf "%s | %s" .Title .Site.Title }}
+    {{ end -}}
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+        {{ if or ( .IsHome ) -}}
+        {
+            "@type": "WebPage",
+            "@id": "{{ .Site.BaseURL }}",
+            "url": "{{ .Site.BaseURL }}",
+            "name": "{{ $title }}",
+            "isPartOf": {
+                "@id": "{{ .Site.BaseURL }}#website"
+            },
+            "about": {
+                "@id": "{{ .Site.BaseURL }}#/schema/person/f8a6a804457ec18d2d7c43fbe0a17543"
+            },
+            "datePublished": "2014-02-02T15:51:17+00:00",
+            "dateModified": "2024-04-30T09:38:20+00:00",
+            "description": "{{.Site.Params.description}}",
+            "breadcrumb": {
+                "@id": "{{ .Site.BaseURL }}#breadcrumb"
+            },
+            "inLanguage": "{{ .Site.Language.LanguageCode }}",
+            "potentialAction": [
+                {
+                    "@type": "ReadAction",
+                    "target": [
+                        "{{ .Site.BaseURL }}"
+                    ]
+                }
+            ]
+        },
+        {{ end }}
+        {{ if eq .Section "posts" }}
+        {
+            "@type":"Article",
+            "@id":"{{ .Permalink }}#article",
+            "isPartOf":{
+               "@id":"{{ .Permalink }}"
+            },
+            "author":{
+                "name":"{{ .Site.Params.author }}",
+                "@id":"{{ .Site.BaseURL }}#/schema/person/f8a6a804457ec18d2d7c43fbe0a17543"
+             },
+             "headline":"{{ .Title }}",
+             "datePublished":"{{ .PublishDate }}",
+             "dateModified":"{{ .Lastmod }}",
+             "mainEntityOfPage":{
+                "@id":"{{ .Permalink }}"
+             },
+             "wordCount":"{{ .WordCount }}",
+             "publisher":{
+                "@id":"{{ .Site.BaseURL }}#/schema/person/f8a6a804457ec18d2d7c43fbe0a17543"
+             },
+             "keywords":[{{ range $i, $e := .Params.tags }}{{ if $i }}, {{ end }}{{ $e }}{{ end }}],
+             "inLanguage": "{{ .Site.Language.LanguageCode }}",
+            {{ with .Params.header_img -}}
+                "thumbnailUrl" : {{ . | absURL }},
+            {{ end -}}
+        },
+        {
+            "@type":"WebPage",
+            "@id":"{{ .Permalink }}",
+            "url":"{{ .Permalink }}",
+            "name": "{{ $title }}",
+            "isPartOf":{
+                "@id":"{{ .Site.BaseURL }}#website"
+             },
+            "datePublished":"{{ .PublishDate }}",
+            "dateModified":"{{ .Lastmod }}",
+            "breadcrumb":{
+                "@id":"{{ .Permalink }}#breadcrumb"
+            },
+            "inLanguage": "{{ .Site.Language.LanguageCode }}",
+            {{ with .Params.header_img -}}
+            "primaryImageOfPage" : {{ . | absURL }},
+            {{ end -}}
+            "potentialAction":[
+            {
+               "@type":"ReadAction",
+               "target":[
+                  "{{ .Permalink }}"
+               ]
+            }
+         ]
+        },
+        {{ end }}
+        {
+            "@type": "WebSite",
+            "@id": "{{ .Site.BaseURL }}#website",
+            "url": "{{ .Site.BaseURL }}",
+            "name": "{{ .Site.Title }}",
+            "description": "{{.Site.Params.description}}",
+            "publisher": {
+                "@id": "{{ .Site.BaseURL }}#/schema/person/f8a6a804457ec18d2d7c43fbe0a17543"
+            },
+            "inLanguage": "{{ .Site.Language.LanguageCode }}"
+        },
+        {
+            "@type": [
+                "Person",
+                "Organization"
+            ],
+            "@id": "{{ .Site.BaseURL }}#/schema/person/f8a6a804457ec18d2d7c43fbe0a17543",
+            "name": "{{ .Site.Params.author }}",
+            "image": {
+                "@type": "ImageObject",
+                "inLanguage": "{{ .Site.Language.LanguageCode }}",
+                "@id": "{{ .Site.BaseURL }}#/schema/person/image/",
+                "url": "{{ .Site.BaseURL }}{{ .Site.Params.sidebar.avatar}}",
+                "contentUrl": "{{ .Site.BaseURL }}{{ .Site.Params.sidebar.avatar}}",
+                "caption": "{{ .Site.Params.author }}"
+            },
+            "logo": {
+                "@id": "{{ .Site.BaseURL }}#/schema/person/image/"
+            },
+            "description": "{{ .Site.Params.sidebar.bio }}",
+            "sameAs": [
+                "https://facebook.com/{{ .Site.Params.social.facebook }}",
+                "https://www.instagram.com/{{ .Site.Params.social.instagram }}",
+                "https://twitter.com/{{ .Site.Params.social.twitter }}"
+            ]
+        }
+        ]
+    }
+</script>
