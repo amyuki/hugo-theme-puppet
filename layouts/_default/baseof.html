@@ -77,12 +77,21 @@
 {{ end }}
 {{ if not .Site.IsServer }}
   {{ template "_internal/google_analytics.html" . }}
+  {{ if .Site.Params.gtm_id}}{{- partial "gtm.html" . }}{{ end }}
 {{ end }}
 </head>
 
 <!-- hack iOS CSS :active style -->
 
 <body ontouchstart="">
+  {{ if not .Site.IsServer }}
+  {{ if .Site.Params.gtm_id}}
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ .Site.Params.gtm_id }}"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  {{ end }}
+  {{ end }}
+  <!-- End Google Tag Manager (noscript) -->
   {{- $header_img := .Param "header_img" -}}
   {{- if .IsHome -}}
   {{ $header_img = .Site.Params.img_home }}
