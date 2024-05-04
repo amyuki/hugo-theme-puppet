@@ -196,11 +196,21 @@ samp {
     }
   }
   // add by yuki
+  ol {
+    list-style-type: upper-alpha;
+  }
+  ul li::marker{
+    font-size: 1.5em;
+    color: #e80561;
+    font-weight: bold;
+    font-family: cursive;
+  } 
   ol li::marker {
     color: #e80561;
     font-weight: bold;
     font-family: cursive;
   }
+  
   // downscale the font a little bit in mobile
   @media screen and (max-width: 768px) {
     h1 {
