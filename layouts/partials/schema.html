@@ -59,7 +59,7 @@
              "keywords":[{{ range $i, $e := .Params.tags }}{{ if $i }}, {{ end }}{{ $e }}{{ end }}],
              "inLanguage": "{{ .Site.Language.LanguageCode }}",
             {{ with .Params.header_img -}}
-                "thumbnailUrl" : {{ . | absURL }},
+                "thumbnailUrl" : {{ . | absURL }}
             {{ end -}}
         },
         {
