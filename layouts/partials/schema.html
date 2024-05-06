@@ -57,10 +57,10 @@
                 "@id":"{{ .Site.BaseURL }}#/schema/person/f8a6a804457ec18d2d7c43fbe0a17543"
              },
              "keywords":[{{ range $i, $e := .Params.tags }}{{ if $i }}, {{ end }}{{ $e }}{{ end }}],
-             "inLanguage": "{{ .Site.Language.LanguageCode }}",
-            {{ with .Params.header_img -}}
-                "thumbnailUrl" : {{ . | absURL }}
-            {{ end -}}
+             {{ with .Params.header_img -}}
+             "thumbnailUrl" : {{ . | absURL }},
+             {{ end -}}
+             "inLanguage": "{{ .Site.Language.LanguageCode }}"
         },
         {
             "@type":"WebPage",
