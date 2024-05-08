@@ -10,9 +10,9 @@
   {{ $sidebar := .Site.Params.sidebar }}
   <div class="short-about">
     {{ if $sidebar.gravatarEmail }}
-    <img src="https://s.gravatar.com/avatar/{{ md5 $sidebar.gravatarEmail }}?s=200" alt="Avatar" class="lazyload"/>
+    <img src="https://s.gravatar.com/avatar/{{ md5 $sidebar.gravatarEmail }}?s=200" alt="Avatar" loading="lazy"/>
     {{ else if $sidebar.avatar }}
-    <img src="{{ $sidebar.avatar | relURL }}" alt="Avatar" class="lazyload"/>
+    <img src="{{ $sidebar.avatar | relURL }}" alt="Avatar" loading="lazy"/>
     {{ end }}
     {{ with $sidebar.bio }}
     <p>{{ $sidebar.bio }}</p>
