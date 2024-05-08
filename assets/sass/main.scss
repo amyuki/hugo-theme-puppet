@@ -210,7 +210,22 @@ samp {
     font-weight: bold;
     font-family: cursive;
   }
-  
+  .footnotes > ol {
+    list-style-type: decimal;
+    color: gray;
+    li{
+      font-size: 13px;
+      font-style: italic;
+
+      &::marker {
+        color: gray;
+      }
+      a{
+        color: gray;
+        text-decoration: underline;
+      }
+    }
+  }
   // downscale the font a little bit in mobile
   @media screen and (max-width: 768px) {
     h1 {
