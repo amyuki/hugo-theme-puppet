@@ -79,6 +79,9 @@
   {{ template "_internal/google_analytics.html" . }}
   {{ if .Site.Params.gtm_id}}{{- partial "gtm.html" . }}{{ end }}
 {{ end }}
+{{ if .Param "math" }}
+  {{ partialCached "math.html" . }}
+{{ end }}
 </head>
 
 <!-- hack iOS CSS :active style -->
