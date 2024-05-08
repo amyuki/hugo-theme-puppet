@@ -19,11 +19,14 @@
 - [x] Syntax Highlighting
 - [x] Search
 - [x] Comments
-- [x] Google Analytics
+- [x] Google Analytics/Google tags
 - [x] Custom CSS and JS
 - [x] Custom 404 Page
 - [x] Custom Favicon
 - [x] Custom Social Icons
+- [x] Math
+- [x] Footnotes
+- [x] Schema structured data
 
 
 ## Installation
