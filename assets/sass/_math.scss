@@ -1,5 +1,10 @@
-mjx-container{
-    ::selection{
-        color: black;
-    }
-}
+.katex-display {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .katex-display::-webkit-scrollbar {
+    display: none;
+  }
