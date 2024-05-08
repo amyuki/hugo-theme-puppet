@@ -211,7 +211,7 @@ samp {
     font-family: cursive;
   }
   .footnotes > ol {
-    list-style-type: decimal;
+    list-style-type:lower-roman; 
     color: gray;
     li{
       font-size: 13px;
@@ -219,6 +219,7 @@ samp {
 
       &::marker {
         color: gray;
+        font-weight: normal;
       }
       a{
         color: gray;
