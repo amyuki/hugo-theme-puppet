@@ -17,23 +17,23 @@
   </div>
 </footer>
 
-<script src={{ "js/jquery.min.js" | relURL }}></script>
-<script src={{"js/bootstrap.min.js" | relURL }} crossorigin="anonymous"></script>
+<script defer src={{ "js/jquery.min.js" | relURL }}></script>
+<script defer src={{"js/bootstrap.min.js" | relURL }} crossorigin="anonymous"></script>
 
 <!-- Custom Theme JavaScript -->
 {{ $mainJs := resources.Get "js/hux-blog.js" | minify | fingerprint }}
-<script src="{{ $mainJs.RelPermalink }}"></script>
+<script defer src="{{ $mainJs.RelPermalink }}"></script>
 
 <!-- Simple Jekyll Search -->
-<script src={{ "js/simple-jekyll-search.min.js" | relURL }}></script>
+<script defer src={{ "js/simple-jekyll-search.min.js" | relURL }}></script>
 
 {{ $searchJs := resources.Get "js/search.js" | resources.ExecuteAsTemplate "js/search.js" . | minify | fingerprint }}
-<script src="{{ $searchJs.RelPermalink }}"></script>
+<script defer src="{{ $searchJs.RelPermalink }}"></script>
 
 
 {{ if eq .Type "archive" }}
 {{ $archiveJS := resources.Get "js/archive.js" | minify | fingerprint }}
-<script src='{{ $archiveJS.RelPermalink }}'></script>
+<script defer src='{{ $archiveJS.RelPermalink }}'></script>
 {{ end }}
 
 {{ $toc := .Scratch.Get "toc" }}
@@ -68,7 +68,7 @@
 </script>
 
 {{ $navJs := resources.Get "js/jquery.nav.js" | minify | fingerprint }}
-<script type="text/javascript" src='{{ $navJs.RelPermalink }}'></script>
+<script defer type="text/javascript" src='{{ $navJs.RelPermalink }}'></script>
 <script>
    $(document).ready( function () {
     $('.catalog-body').onePageNav({
@@ -95,4 +95,4 @@
 {{ end }}
 
 {{ $zoom_js := resources.Get "zoomjs/zoom.js" | resources.Minify }}
-<script src="{{ $zoom_js.RelPermalink }}"></script>
+<script defer src="{{ $zoom_js.RelPermalink }}"></script>
