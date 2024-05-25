@@ -64,10 +64,12 @@ article {
   overflow: hidden;
 }
 blockquote {
-  color: gray;
+  color: #535353;
   font-style: italic;
   font-size: 0.95em;
   margin: 20px 0 20px;
+  border-left:5px solid #e8055f;
+  background-color: #f5f5f5;
   p {
     margin: 0;
   }
@@ -211,6 +213,9 @@ samp {
     font-weight: bold;
     font-family: cursive;
   }
+  .footnotes {
+    padding-top: 40px;
+  }
   .footnotes > ol {
     list-style-type:decimal;
     color: gray;
@@ -227,6 +232,14 @@ samp {
         text-decoration: underline;
       }
     }
+  }
+  .series-posts{
+    background-color: #f5f5f5;
+    padding:1rem;
+    ul li{
+      font-size: 14px;
+    }
+
   }
   // downscale the font a little bit in mobile
   @media screen and (max-width: 768px) {

@@ -1,0 +1,11 @@
+{{ if isset .Params "series" }}
+<hr style="visibility: hidden;" />
+<div class="series-posts">
+<span><strong>Articles in this series:</strong></span>
+<ul class="series-body">
+    {{ range where .Site.RegularPages "Params.series" "intersect" .Params.series }}
+    <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+    {{ end }}
+</ul>
+</div>
+{{ end }}
