@@ -11,6 +11,7 @@
               col-md-10 col-md-offset-1
               post-container">
         {{ .Content }}
+        {{ partial "bottom-post.html" . }}
         {{ partial "series.html" . }}
         <hr style="visibility: hidden;" />
         <ul class="pager">
