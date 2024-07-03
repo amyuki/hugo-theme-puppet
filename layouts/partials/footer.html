@@ -102,7 +102,7 @@
       processData: false,
       contentType: false,
       success: function (data) {
-        $(this).reset();
+        e.currentTarget.reset();
         $("#progress").show();
       },
       error: function (error) {
