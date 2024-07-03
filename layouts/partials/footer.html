@@ -90,8 +90,8 @@
 
 {{ end }}
 
-{{ if eq .Path "/contact" }}
 <script>
+  if ($('form').length > 0) {
   $('form').on('submit', function (e) {
     e.preventDefault();
 
@@ -111,8 +111,8 @@
       }
     });
   });
+};
 </script>
-{{ end }}
 
 {{ if not .Site.IsServer }}
 {{ template "_internal/google_analytics.html" . }}
