@@ -102,9 +102,8 @@
       processData: false,
       contentType: false,
       success: function (data) {
-        console.log(data);
-        $('form')[0].reset();
-        $('#progress').show();
+        $(this).reset();
+        $("#progress").show();
       },
       error: function (error) {
         console.error('An error occurred.', error);
