@@ -7,11 +7,11 @@
         {{ partial "sns-links.html" (dict "center" true "social" .Site.Params.social ) }}
         {{ partial "footer-menu.html" }}
         <p class="copyright text-muted">
-        {{- if site.Copyright }}
+          {{- if site.Copyright }}
           {{ site.Copyright | markdownify }}
-        {{- else }}
+          {{- else }}
           Copyright &copy; {{ .Site.Title }} {{ now.Format "2006" }}
-        {{- end }}  
+          {{- end }}
         </p>
       </div>
     </div>
@@ -71,7 +71,7 @@
 {{ $navJs := resources.Get "js/jquery.nav.js" | minify | fingerprint }}
 <script defer type="text/javascript" src='{{ $navJs.RelPermalink }}'></script>
 <script>
-   $(document).ready( function () {
+  $(document).ready(function () {
     $('.catalog-body').onePageNav({
       currentClass: "active",
       changeHash: !1,
@@ -90,6 +90,29 @@
 
 {{ end }}
 
+{{ if eq .Path "/contact" }}
+<script>
+  $('form').on('submit', function (e) {
+    e.preventDefault();
+
+    $.ajax({
+      url: $(this).attr('action'),
+      type: 'POST',
+      data: new FormData(this),
+      processData: false,
+      contentType: false,
+      success: function (data) {
+        console.log(data);
+        $('form')[0].reset();
+        $('#progress').show();
+      },
+      error: function (error) {
+        console.error('An error occurred.', error);
+      }
+    });
+  });
+</script>
+{{ end }}
 
 {{ if not .Site.IsServer }}
 {{ template "_internal/google_analytics.html" . }}
