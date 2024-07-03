@@ -74,6 +74,8 @@ description = "A simple and clean theme for Hugo"
 keywords = "blog,developer,personal"
 img_home = "img/home-bg.jpg"
 img_404 = "img/404-bg.jpg"
+gtm_id = "GTM-XXXX"
+contact_form_submit_url = "/api/submit"
 
 useFaviconGenerator = true
 
