@@ -28,7 +28,7 @@
 
   {{ $options := (dict "outputStyle" "compressed" "enableSourceMap" (not hugo.IsProduction) "includePaths" (slice
   "sass")) }}
-  {{- $style := resources.Get "sass/main.scss" | resources.ToCSS $options -}}
+  {{- $style := resources.Get "sass/main.scss" | css.Sass $options -}}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}">
 
   {{ $zoom_css := resources.Get "zoomjs/zoom.css" | resources.Minify -}}
@@ -37,7 +37,7 @@
   {{ range .Site.Params.custom_css -}}
   {{ $custom_template := resources.Get . }}
   {{ if $custom_template }}
-  {{ $custom_style := $custom_template | resources.ToCSS | resources.Minify }}
+  {{ $custom_style := $custom_template | css.Sass | resources.Minify }}
   <link rel="stylesheet" href="{{ $custom_style.RelPermalink }}">
   {{ end }}
   {{- end -}}
@@ -76,7 +76,7 @@
   <link rel="shortcut icon" href="{{ "favicon.ico" | relURL }}" type="image/x-icon">
   <link rel="icon" href="{{ "logo.svg" | relURL }}" sizes="any" type="image/svg+xml" />
 {{ end }}
-{{ if not .Site.IsServer }}
+{{ if not hugo.IsServer }}
   {{ template "_internal/google_analytics.html" . }}
   {{ if .Site.Params.gtm_id}}{{- partial "gtm.html" . }}{{ end }}
 {{ end }}
@@ -91,7 +91,7 @@
 <!-- hack iOS CSS :active style -->
 
 <body>
-  {{ if not .Site.IsServer }}
+  {{ if not hugo.IsServer }}
   {{ if .Site.Params.gtm_id}}
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ .Site.Params.gtm_id }}"
