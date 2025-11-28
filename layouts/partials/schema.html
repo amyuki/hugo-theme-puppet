@@ -69,9 +69,6 @@
              },
             "datePublished":"{{ .PublishDate }}",
             "dateModified":"{{ .Lastmod }}",
-            "breadcrumb":{
-                "@id":"{{ .Permalink }}#breadcrumb"
-            },
             "inLanguage": "{{ .Site.Language.LanguageCode }}",
             {{ with .Params.header_img -}}
             "primaryImageOfPage" : {{ . | absURL }},
