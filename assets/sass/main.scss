@@ -200,7 +200,7 @@ samp {
   }
   // add by yuki
   ol {
-    list-style-type: upper-alpha;
+    list-style-type: decimal-leading-zero;
   }
   ul li::marker{
     font-size: 1.5em;
