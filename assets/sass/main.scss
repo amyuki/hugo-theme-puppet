@@ -213,6 +213,9 @@ samp {
     font-weight: bold;
     font-family: cursive;
   }
+  ol li ol li {
+    list-style-type: lower-roman;
+  }
   .footnotes {
     padding-top: 40px;
   }
